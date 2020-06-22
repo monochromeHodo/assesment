@@ -1,0 +1,14 @@
+C:\Users\MTurhan\source\repos\ups\ups\bin\Debug\ups.exe.config
+C:\Users\MTurhan\source\repos\ups\ups\bin\Debug\ups.exe
+C:\Users\MTurhan\source\repos\ups\ups\bin\Debug\ups.pdb
+C:\Users\MTurhan\source\repos\ups\ups\bin\Debug\Newtonsoft.Json.dll
+C:\Users\MTurhan\source\repos\ups\ups\bin\Debug\Newtonsoft.Json.xml
+C:\Users\MTurhan\source\repos\ups\ups\obj\Debug\ups.csprojAssemblyReference.cache
+C:\Users\MTurhan\source\repos\ups\ups\obj\Debug\ups.frmEmployee.resources
+C:\Users\MTurhan\source\repos\ups\ups\obj\Debug\ups.Properties.Resources.resources
+C:\Users\MTurhan\source\repos\ups\ups\obj\Debug\ups.csproj.GenerateResource.cache
+C:\Users\MTurhan\source\repos\ups\ups\obj\Debug\ups.csproj.CoreCompileInputs.cache
+C:\Users\MTurhan\source\repos\ups\ups\obj\Debug\ups.csproj.CopyComplete
+C:\Users\MTurhan\source\repos\ups\ups\obj\Debug\ups.exe
+C:\Users\MTurhan\source\repos\ups\ups\obj\Debug\ups.pdb
+C:\Users\MTurhan\source\repos\ups\ups\obj\Debug\ups.frmAddEmployee.resources
