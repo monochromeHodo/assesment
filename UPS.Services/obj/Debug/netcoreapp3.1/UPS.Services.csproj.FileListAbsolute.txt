@@ -1,0 +1,4 @@
+C:\Users\MTurhan\source\repos\ups\UPS.Services\bin\Debug\netcoreapp3.1\UPS.Entities.dll
+C:\Users\MTurhan\source\repos\ups\UPS.Services\obj\Debug\netcoreapp3.1\UPS.Services.csprojAssemblyReference.cache
+C:\Users\MTurhan\source\repos\ups\UPS.Services\obj\Debug\netcoreapp3.1\UPS.Services.AssemblyInfoInputs.cache
+C:\Users\MTurhan\source\repos\ups\UPS.Services\obj\Debug\netcoreapp3.1\UPS.Services.AssemblyInfo.cs

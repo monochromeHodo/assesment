@@ -21,6 +21,7 @@ namespace ups
         }
         private int currentPage = 1;
         private int pageCount;
+        string searchTerm = string.Empty;
         HttpClient httpClient = new HttpClient();
         private async void frmEmployee_Load(object sender, EventArgs e)
         {
@@ -37,7 +38,7 @@ namespace ups
         private async Task<IEnumerable<Result>> getEmployees(int page = 1)
         {
 
-            string responseBody = await httpClient.GetStringAsync($"users?page={page}");
+            string responseBody = await httpClient.GetStringAsync($"users?page={page}{searchTerm}");
 
             var response = JsonConvert.DeserializeObject<Rootobject>(responseBody);
             pageCount = response._meta.pageCount;
@@ -116,6 +117,76 @@ namespace ups
             }
 
            
+        }
+
+        private async void btn_Search_Click(object sender, EventArgs e)
+        {
+            Result searchResult = new Result();
+            searchResult.first_name = txt_SearchFirstName.Text;
+            searchResult.last_name = txt_SearchLastName.Text;
+            searchResult.email = txt_SearchEmail.Text;
+            searchResult.phone = txt_SearchPhone.Text;
+            searchResult.website = txt_SearchWebsite.Text;
+
+            var searchKeys = new List<string>();
+
+            if(!string.IsNullOrEmpty(searchResult.first_name))
+            {
+                searchKeys.Add($"{nameof(searchResult.first_name)}={searchResult.first_name}");
+            }
+            if (!string.IsNullOrEmpty(searchResult.last_name))
+            {
+                searchKeys.Add($"{nameof(searchResult.last_name)}={searchResult.last_name}");
+            }
+            if (!string.IsNullOrEmpty(searchResult.email))
+            {
+                searchKeys.Add($"{nameof(searchResult.email)}={searchResult.email}");
+            }
+            if (!string.IsNullOrEmpty(searchResult.phone))
+            {
+                searchKeys.Add($"{nameof(searchResult.phone)}={searchResult.phone}");
+            }
+            if (!string.IsNullOrEmpty(searchResult.website))
+            {
+                searchKeys.Add($"{nameof(searchResult.website)}={searchResult.website}");
+            }
+
+            string searchString=string.Empty;
+
+            foreach (var key in searchKeys)
+            {
+                searchString += $"&{key}";
+            }
+
+            searchTerm = searchString;
+            currentPage = 1;
+            pageChanged();
+
+            dtg_EmployeeList.DataSource = await getEmployees(currentPage);
+
+        }
+
+        private async void btn_ClearSearch_Click(object sender, EventArgs e)
+        {
+            txt_SearchFirstName.Text=string.Empty;
+            txt_SearchLastName.Text = string.Empty;
+            txt_SearchEmail.Text = string.Empty;
+            txt_SearchPhone.Text = string.Empty;
+            txt_SearchWebsite.Text = string.Empty;
+
+            searchTerm = string.Empty;
+
+            currentPage = 1;
+            pageChanged();
+
+            dtg_EmployeeList.DataSource = await getEmployees(currentPage);
+        }
+
+        private void btn_Export_Click(object sender, EventArgs e)
+        {
+            frmExport frmExport = new frmExport(httpClient,currentPage, searchTerm);
+
+            frmExport.ShowDialog();
         }
     }
 }

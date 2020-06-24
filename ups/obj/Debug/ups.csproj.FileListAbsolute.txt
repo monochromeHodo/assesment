@@ -12,3 +12,4 @@ C:\Users\MTurhan\source\repos\ups\ups\obj\Debug\ups.csproj.CopyComplete
 C:\Users\MTurhan\source\repos\ups\ups\obj\Debug\ups.exe
 C:\Users\MTurhan\source\repos\ups\ups\obj\Debug\ups.pdb
 C:\Users\MTurhan\source\repos\ups\ups\obj\Debug\ups.frmAddEmployee.resources
+C:\Users\MTurhan\source\repos\ups\ups\obj\Debug\ups.frmExport.resources
