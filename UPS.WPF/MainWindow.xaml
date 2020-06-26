@@ -78,11 +78,6 @@
                 <Button Content="Last" Command="{Binding Path=LastPage}"/>
 
             </StackPanel>
-            <TextBlock >
-                <Run Text="{Binding Path=Metamodel.CurrentPage}"/>
-                <Run Text="/"/>
-                <Run Text="{Binding Path=Metamodel.PageCount}"/>
-            </TextBlock>
         </StackPanel>
     </Grid>
 </Window>
