@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace UPS.Entities
+namespace UPS.Entities.EmployeeEntities
 {
-    public class Avatar
+    public class Self
     {
         public string href { get; set; }
 

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace UPS.Entities
+namespace UPS.Entities.EmployeeEntities
 {
-    public class Rootobject
+    public class EmployeeRootObject
     {
         public Meta _meta { get; set; }
         public IEnumerable<Employee> result { get; set; }

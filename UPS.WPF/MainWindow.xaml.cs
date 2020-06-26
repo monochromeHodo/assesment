@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UPS.WPF.ViewModel;
 
 namespace UPS.WPF
 {
@@ -20,9 +21,45 @@ namespace UPS.WPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        EmployeeListViewModel viewModel;
+        public  MainWindow()
         {
             InitializeComponent();
+            viewModel = new EmployeeListViewModel();
+            this.DataContext = viewModel;
         }
+
+       
+
+        private void editEmployee(object id)
+        {
+            var employeeModel= viewModel.EmployeeModels.Single(t => t.Id == id.ToString());
+            EmployeeModel employeeViewModel = new EmployeeModel();
+
+            AddEmployeeWindow addEmployeeWindow = new AddEmployeeWindow(employeeViewModel);
+
+            addEmployeeWindow.ShowDialog();
+
+        }
+
+        private void ListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var employeeModel = ((ListView)sender).SelectedItem as EmployeeModel;
+            
+
+            AddEmployeeWindow addEmployeeWindow = new AddEmployeeWindow(employeeModel);
+
+            addEmployeeWindow.ShowDialog();
+        }
+
+        private void AddEmployeeClick(object sender, RoutedEventArgs e)
+        {
+           
+            AddEmployeeWindow addEmployeeWindow = new AddEmployeeWindow();
+
+            addEmployeeWindow.ShowDialog();
+        }
+
+      
     }
 }

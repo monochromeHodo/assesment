@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace UPS.Entities
+namespace UPS.Entities.EmployeeEntities
 {
     public class Employee
     {

@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Windows.Input;
+using UPS.Services;
+using UPS.WPF.ViewModel;
 
 namespace UPS.WPF
 {
-    public class EmployeeModel : INotifyPropertyChanged
+    public class EmployeeModel : ModelBase
 
     {
         private string firstName;
@@ -19,6 +22,18 @@ namespace UPS.WPF
         private string website;
         private string address;
         private string status;
+
+        private ICommand saveEmployee1;
+        private ICommand deleteEmployee1;
+        private ICommand editEmployee;
+        EmployeeService employeeService;
+
+        public EmployeeModel()
+        {
+            SaveEmployee = new RelayCommand(t => saveEmployee(), t => true);
+            DeleteEmployee = new RelayCommand(t => { this.deleteEmployee(); }, t => { return true; });
+            employeeService = new EmployeeService();
+        }
 
         public string Id { get => id; set => id = value; }
         public string FirstName
@@ -94,11 +109,19 @@ namespace UPS.WPF
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public ICommand EditEmployee { get => editEmployee; set => editEmployee = value; }
+        public ICommand DeleteEmployee { get => deleteEmployee1; set => deleteEmployee1 = value; }
+        public ICommand SaveEmployee { get => saveEmployee1; set => saveEmployee1 = value; }
 
-        protected void OnPropertyChange([CallerMemberName] string propertyName = null)
+        private void saveEmployee()
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            var entity = EmployeeMapper.modelToEntity(this);
+            employeeService.SaveEmployee(entity);
+        }
+
+        private void deleteEmployee()
+        {
+            employeeService.DeleteEmployee(Convert.ToInt32(this.id));
         }
     }
 }

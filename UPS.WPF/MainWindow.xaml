@@ -3,10 +3,86 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:UPS.WPF"
+        xmlns:local="clr-namespace:UPS.WPF" xmlns:viewmodel="clr-namespace:UPS.WPF.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="1000">
+    <Window.Resources>
+        <viewmodel:EmployeeListViewModel x:Key="employeeListViewModel"/>
+    </Window.Resources>
     <Grid>
+        <StackPanel>
+            <Button Width="100" HorizontalAlignment="Left" Click="AddEmployeeClick">
+                + Add Employee
+            </Button>
+            <ScrollViewer Height="350">
+                <ListView ItemsSource="{Binding Path=EmployeeModels}" MouseDoubleClick="ListView_MouseDoubleClick">
 
+                    <ListView.View>
+
+                        <GridView AllowsColumnReorder="true"
+              ColumnHeaderToolTip="Employee Information">
+
+                            <GridViewColumn DisplayMemberBinding=
+                          "{Binding Path=Id}" 
+                      Header="Id" Width="50"/>
+                            <GridViewColumn DisplayMemberBinding=
+                          "{Binding Path=FirstName}" 
+                      Header="First Name" Width="100"/>
+
+                            <GridViewColumn DisplayMemberBinding=
+                          "{Binding Path=LastName}" 
+                      Width="100">
+                                <GridViewColumnHeader>Last Name
+
+                                </GridViewColumnHeader>
+                            </GridViewColumn>
+
+
+                            <GridViewColumn DisplayMemberBinding=
+                          "{Binding Path=Dob}" 
+                      Header="Date of Birth" Width="100"/>
+                            <GridViewColumn DisplayMemberBinding=
+                          "{Binding Path=Email}" 
+                      Header="E-Mail" Width="150"/>
+                            <GridViewColumn DisplayMemberBinding=
+                          "{Binding Path=Phone}" 
+                      Header="Phone" Width="100"/>
+                            <GridViewColumn DisplayMemberBinding=
+                          "{Binding Path=Website}" 
+                      Header="Website" Width="100"/>
+                            <GridViewColumn DisplayMemberBinding=
+                          "{Binding Path=Address}" 
+                      Header="Address" Width="100"/>
+                            <GridViewColumn DisplayMemberBinding=
+                          "{Binding Path=Status}" 
+                      Header="Status" Width="100"/>
+
+                            <GridViewColumn Header="Delete" Width="50">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Content="DeleteEmployee" Command="{Binding  Path=DeleteEmployee}"
+/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+
+                        </GridView>
+
+                    </ListView.View>
+                </ListView>
+            </ScrollViewer>         
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="First" Command="{Binding Path=FirstPage}"/>
+                <Button Content="Previous" Command="{Binding Path=PreviousPage}" />
+                <Button Content="Next" Command="{Binding Path=NextPage}"/>
+                <Button Content="Last" Command="{Binding Path=LastPage}"/>
+
+            </StackPanel>
+            <TextBlock >
+                <Run Text="{Binding Path=Metamodel.CurrentPage}"/>
+                <Run Text="/"/>
+                <Run Text="{Binding Path=Metamodel.PageCount}"/>
+            </TextBlock>
+        </StackPanel>
     </Grid>
 </Window>

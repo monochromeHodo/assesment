@@ -6,4 +6,9 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\UPS.Entities\UPS.Entities.csproj" />
+    <ProjectReference Include="..\UPS.Services\UPS.Services.csproj" />
+  </ItemGroup>
+
 </Project>

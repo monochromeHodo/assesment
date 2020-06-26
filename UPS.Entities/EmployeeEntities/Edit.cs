@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace UPS.Entities
+namespace UPS.Entities.EmployeeEntities
 {
-    public class Self
+    public class Edit
     {
         public string href { get; set; }
 

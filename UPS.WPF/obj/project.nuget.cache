@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "aLLTAdZs+lzYVYAE3Vs+tUA3xK+b/+duLfBo32UpimnpSePhQ7/JURzUs8D5wUqXXuuSy7+6QDBXJFNyV2ZPKg==",
+  "dgSpecHash": "0Z4OlaFKy/aAkYtSe0UbBzhgMwwcraRZeeHiSC5doby9u2+6qoTGJyhILkkoXDd78A6Ycpvpy2VurrZka9ldwA==",
   "success": true,
   "projectFilePath": "C:\\Users\\MTurhan\\source\\repos\\ups\\UPS.WPF\\UPS.WPF.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\MTurhan\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
   "logs": []
 }
